@@ -10,7 +10,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /home/user/chatmastr/traefik.yml:/traefik.yml
-      - /home/user/chatmastr/traefik_dynconf.yml:/traefik_dynconf.yml
+      - /home/user/chatmastr/traefik_dynconf.yml:/app/traefik_dynconf.yml
       - /home/user/letsencrypt:/app/letsencrypt
 
   chatmastr:
