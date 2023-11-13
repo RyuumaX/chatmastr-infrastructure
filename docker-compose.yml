@@ -11,7 +11,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /home/user/chatmastr/traefik.yml:/traefik.yml
       - /home/user/chatmastr/traefik_dynconf.yml:/app/traefik_dynconf.yml
-      - /home/user/letsencrypt:/app/letsencrypt
+      - /home/user/letsencrypt:/app/letsencrypt:ro
 
   chatmastr:
     image: ghcr.io/ryuumax/chatmastr:master
