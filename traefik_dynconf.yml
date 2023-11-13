@@ -1,0 +1,4 @@
+tls:
+  certificates:
+    - certFile: "./letsencrypt/certs/live/a100.rc.th-b.com-0001/fullchain.pem"
+    - keyFile: "./letsencrypt/certs/live/a100.rc.th-b.com-0001/privkey.pem"

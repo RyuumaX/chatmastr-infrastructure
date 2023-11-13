@@ -9,7 +9,9 @@ services:
       - traefik
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./traefik.yml:/traefik.yml
+      - /home/user/chatmastr/traefik.yml:/traefik.yml
+      - /home/user/chatmastr/traefik_dynconf.yml:/traefik_dynconf.yml
+      - /home/user/letsencrypt:/app/letsencrypt
 
   chatmastr:
     image: ghcr.io/ryuumax/chatmastr:master
@@ -21,6 +23,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.routers.chatmastr.rule=Host(`a100.rc.th-b.com`) && Pathprefix(`/chatmastr`)
+      - traefik.http.routers.chatmastr.tls=true
     volumes:
       - /home/user/KnowledgeBase:/app/KnowledgeBase
     environment:

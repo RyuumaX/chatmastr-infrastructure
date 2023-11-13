@@ -10,3 +10,5 @@ providers:
     watch: true
     network: traefik
     exposedByDefault: false
+  file:
+    filename: /app/traefik_dynconf.yml
