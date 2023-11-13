@@ -25,6 +25,7 @@ services:
       - /home/user/KnowledgeBase:/app/KnowledgeBase
     environment:
       - OPENAI_API_BASE=http://host.docker.internal:8082/v1
+      - STREAMLIT_CONFIG_SERVER_BASEURLPATH=/chatmastr
     extra_hosts:
       - "host.docker.internal:host-gateway"
 networks:
