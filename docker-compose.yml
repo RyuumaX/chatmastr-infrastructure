@@ -43,6 +43,8 @@ services:
       - traefik.enable=true
       - traefik.http.routers.promptcomposer.rule=Host(`a100.rc.th-b.com`) && PathPrefix(`/promptcomposer`)
       - traefik.http.routers.promptcomposer.tls=true
+      - traefik.http.routers.promptcomposer.middlewares=promptcomposer-stripprefix
+      - traefik.http.middlewares.promptcomposer-stripprefix.stripprefix.prefixes=/promptcomposer
     ports:
       - '1234:8080'
     extra_hosts:
