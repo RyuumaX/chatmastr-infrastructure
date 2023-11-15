@@ -31,6 +31,23 @@ services:
       - STREAMLIT_SERVER_BASE_URL_PATH=/chatmastr
     extra_hosts:
       - "host.docker.internal:host-gateway"
+
+  promptcomposer:
+    image: ghcr.io/tuuby/ai-prompt-composer:master
+    environment:
+      - OPENAI_API_KEY=EMPTY
+      - OPENAI_API_BASE=http://host.docker.internal:8082/v1
+    networks:
+      - traefik
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.promptcomposer.rule=Host(`a100.rc.th-b.com`) && PathPrefix(`/promptcomposer`)
+      - traefik.http.routers.promptcomposer.tls=true
+    ports:
+      - '1234:8080'
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
 networks:
   traefik:
     external: true
