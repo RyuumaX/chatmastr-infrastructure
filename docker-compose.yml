@@ -12,6 +12,10 @@ services:
       - /home/user/chatmastr/traefik.yml:/traefik.yml
       - /home/user/chatmastr/traefik_dynconf.yml:/app/traefik_dynconf.yml
       - /home/user/letsencrypt:/app/letsencrypt:ro
+    profiles:
+      - all
+      - chatmastr
+      - promptcomposer
 
   chatmastr:
     image: ghcr.io/ryuumax/chatmastr:master
@@ -31,6 +35,9 @@ services:
       - STREAMLIT_SERVER_BASE_URL_PATH=/chatmastr
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    profiles:
+      - all
+      - chatmastr
 
   promptcomposer:
     image: ghcr.io/tuuby/ai-prompt-composer:master
@@ -50,6 +57,9 @@ services:
       - '1234:8080'
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    profiles:
+      - all
+      - promptcomposer
 
 networks:
   traefik:
