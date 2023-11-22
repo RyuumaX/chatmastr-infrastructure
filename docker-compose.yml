@@ -34,17 +34,17 @@ services:
 
   promptcomposer:
     image: ghcr.io/tuuby/ai-prompt-composer:master
+    pull_policy: always
     environment:
       - OPENAI_API_KEY=EMPTY
       - OPENAI_API_BASE=http://host.docker.internal:8082/v1
+      - WEB_BASE_URL=/promptcomposer
     networks:
       - traefik
     labels:
       - traefik.enable=true
       - traefik.http.routers.promptcomposer.rule=Host(`a100.rc.th-b.com`) && PathPrefix(`/promptcomposer`)
       - traefik.http.routers.promptcomposer.tls=true
-      #- traefik.http.routers.promptcomposer.middlewares=promptcomposer-stripprefix
-      #- traefik.http.middlewares.promptcomposer-stripprefix.stripprefix.prefixes=/promptcomposer
     ports:
       - '1234:8080'
     extra_hosts:
