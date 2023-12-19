@@ -43,7 +43,7 @@ services:
     image: ghcr.io/ryuumax/chatmastr:experimental
     pull_policy: always
     ports:
-      - '80:8501'
+      - '8080:8501'
     networks:
       - traefik
     labels:
