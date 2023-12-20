@@ -52,6 +52,7 @@ services:
       - traefik.http.routers.chatmastr-dev.tls=true
     volumes:
       - /home/user/KnowledgeBase:/app/KnowledgeBase
+      - /home/user/streamlit/assets:/app/assets
     environment:
       - OPENAI_API_BASE=http://host.docker.internal:8082/v1
       - STREAMLIT_SERVER_BASE_URL_PATH=/chatmastr-dev
