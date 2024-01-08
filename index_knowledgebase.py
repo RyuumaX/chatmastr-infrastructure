@@ -41,7 +41,7 @@ def create_embeddings_from_docs(docs, save_path):
 
 
 if __name__ == "__main__":
-    os.environ['OPENAI_API_BASE'] = "a100.rc.th-b.com:8082/v1"
+    os.environ['OPENAI_API_BASE'] = "https://a100.rc.th-b.com:8082/v1"
     os.environ['OPENAI_API_KEY'] = "EMPTY"
 
     argparser = argparse.ArgumentParser(description="takes the path to a directory containing a set of pdf-documents"
