@@ -57,7 +57,6 @@ services:
     environment:
       - OPENAI_API_KEY=EMPTY
       - OPENAI_API_BASE=http://host.docker.internal:8082/v1
-      - CUDA_VISIBLE_DEVICES=0,1
       - STREAMLIT_SERVER_BASE_URL_PATH=/chatmastr-dev
     extra_hosts:
       - "host.docker.internal:host-gateway"
