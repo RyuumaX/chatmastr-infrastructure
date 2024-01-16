@@ -32,6 +32,7 @@ services:
       - /home/user/KnowledgeBase:/app/KnowledgeBase
       - /home/user/streamlit/assets:/app/resources
     environment:
+      - OPENAI_API_KEY=EMPTY
       - OPENAI_API_BASE=http://host.docker.internal:8082/v1
       - STREAMLIT_SERVER_BASE_URL_PATH=/chatmastr
     extra_hosts:
@@ -44,18 +45,20 @@ services:
     image: ghcr.io/ryuumax/chatmastr:experimental
     pull_policy: always
     ports:
-      - '80:8501'
+      - '8080:8501'
     networks:
       - traefik
     labels:
       - traefik.enable=true
-      - traefik.http.routers.chatmastr.rule=Host(`a100.rc.th-b.com`) && PathPrefix(`/chatmastr-dev`)
-      - traefik.http.routers.chatmastr.tls=true
+      - traefik.http.routers.chatmastr-dev.rule=Host(`a100.rc.th-b.com`) && PathPrefix(`/chatmastr-dev`)
+      - traefik.http.routers.chatmastr-dev.tls=true
     volumes:
       - /home/user/KnowledgeBase:/app/KnowledgeBase
-      - /home/user/streamlit/assets:/app/resources
+      - /home/user/streamlit/assets:/app/assets
     environment:
+      - OPENAI_API_KEY=EMPTY
       - OPENAI_API_BASE=http://host.docker.internal:8082/v1
+      - CUDA_VISIBLE_DEVICES=0,1
       - STREAMLIT_SERVER_BASE_URL_PATH=/chatmastr-dev
     extra_hosts:
       - "host.docker.internal:host-gateway"
