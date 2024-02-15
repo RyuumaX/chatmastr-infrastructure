@@ -30,7 +30,6 @@ services:
       - traefik.http.routers.chatmastr.tls=true
     volumes:
       - /home/user/KnowledgeBase:/app/KnowledgeBase
-      - /home/user/streamlit/assets:/app/resources
     environment:
       - OPENAI_API_KEY=EMPTY
       - OPENAI_API_BASE=http://host.docker.internal:8082/v1
