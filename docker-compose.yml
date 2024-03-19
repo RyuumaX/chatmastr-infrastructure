@@ -53,7 +53,7 @@ services:
       - traefik.http.routers.chatmastr-dev.rule=Host(`a100.rc.th-b.com`) && PathPrefix(`/chatmastr-dev`)
       - traefik.http.routers.chatmastr-dev.tls=true
     volumes:
-      - /home/user/KnowledgeBase:/app/KnowledgeBase
+      - /home/user/Knowledgebase_EWI:/app/KnowledgeBase
       - /home/user/streamlit/assets:/app/assets
     environment:
       - OPENAI_API_KEY=EMPTY
